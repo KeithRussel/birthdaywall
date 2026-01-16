@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx create-next-app@latest:*)",
+      "Bash(npm install:*)",
+      "Bash(npx prisma init:*)",
+      "Bash(npx prisma migrate:*)",
+      "Bash(npm run dev:*)",
+      "Bash(timeout /t 10)",
+      "Bash(taskkill //F //PID 14856)",
+      "Bash(cmd //c \"rd /s /q .next\")",
+      "Bash(cmd //c:*)",
+      "Bash(taskkill:*)",
+      "Bash(npx tsc:*)",
+      "Bash(powershell -Command \"Get-ChildItem -Path ''.next'' -Recurse | Remove-Item -Force -Recurse; Remove-Item ''.next'' -Force -Recurse\")",
+      "Bash(powershell -Command \"handle.exe d:\\\\Projects\\\\birthdaywall\\\\.next\\\\trace 2>&1 || Get-Process | Where-Object {$_Path -like ''*node*''} | Select-Object Id, ProcessName, Path\")",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(powershell -Command:*)",
+      "Bash(npm uninstall:*)",
+      "Bash(ls:*)",
+      "Bash(npx prisma generate:*)",
+      "Bash(timeout:*)",
+      "Bash(rd /s /q \"node_modules\\\\.prisma\")",
+      "Bash(set PRISMA_USER_CONSENT_FOR_DANGEROUS_AI_ACTION=Yes)",
+      "Bash($env:PRISMA_USER_CONSENT_FOR_DANGEROUS_AI_ACTION=\"Yes\")",
+      "Bash(npx prisma db push:*)",
+      "Bash(npx shadcn@latest add alert-dialog)",
+      "Bash(dir /s /b \"app\\\\*[*]*\\\\page.tsx\")",
+      "Bash(move \"app\\\\admin\\\\[token]\" \"app\\\\admin\\\\[adminToken]\")"
+    ]
+  }
+}

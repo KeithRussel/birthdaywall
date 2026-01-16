@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model BirthdayPage {
+  id             String     @id @default(cuid())
+  name           String
+  title          String?
+  token          String     @unique
+  adminToken     String?    @unique // For managing/deleting greetings
+  birthdayDate   DateTime?  // When the birthday is
+  celebrantPhotos String?   // JSON array of photo URLs (max 5)
+  createdAt      DateTime   @default(now())
+  greetings      Greeting[]
+}
+
+model Greeting {
+  id             String       @id @default(cuid())
+  birthdayPageId String
+  type           String       // "note" | "photo" | "video"
+  content        String       // text content or file path
+  senderName     String?
+  reactions      Int          @default(0) // heart/like count
+  createdAt      DateTime     @default(now())
+  birthdayPage   BirthdayPage @relation(fields: [birthdayPageId], references: [id], onDelete: Cascade)
+
+  @@index([birthdayPageId])
+}
