@@ -66,19 +66,19 @@ export default async function AdminPage({ params }: PageProps) {
               </div>
               <div className="bg-gradient-to-br from-pink-50 to-pink-100 p-4 rounded-lg">
                 <div className="text-2xl font-bold text-pink-600">
-                  {birthdayPage.greetings.filter((g) => g.type === 'note').length}
+                  {birthdayPage.greetings.filter((g: { type: string }) => g.type === 'note').length}
                 </div>
                 <div className="text-sm text-gray-600">Text Notes</div>
               </div>
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg">
                 <div className="text-2xl font-bold text-blue-600">
-                  {birthdayPage.greetings.filter((g) => g.type === 'photo').length}
+                  {birthdayPage.greetings.filter((g: { type: string }) => g.type === 'photo').length}
                 </div>
                 <div className="text-sm text-gray-600">Photos</div>
               </div>
               <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg">
                 <div className="text-2xl font-bold text-green-600">
-                  {birthdayPage.greetings.filter((g) => g.type === 'video').length}
+                  {birthdayPage.greetings.filter((g: { type: string }) => g.type === 'video').length}
                 </div>
                 <div className="text-sm text-gray-600">Videos</div>
               </div>
