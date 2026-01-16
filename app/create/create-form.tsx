@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
@@ -147,11 +148,13 @@ export function CreateForm() {
         {photoPreviews.length > 0 && (
           <div className="grid grid-cols-3 gap-2 mt-3">
             {photoPreviews.map((preview, index) => (
-              <div key={index} className="relative group">
-                <img
+              <div key={index} className="relative group h-24">
+                <Image
                   src={preview}
                   alt={`Preview ${index + 1}`}
-                  className="w-full h-24 object-cover rounded-lg"
+                  fill
+                  className="object-cover rounded-lg"
+                  sizes="150px"
                 />
                 <button
                   type="button"

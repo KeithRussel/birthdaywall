@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
@@ -32,10 +33,13 @@ export function CelebrantCarousel({ photos, name }: CelebrantCarouselProps) {
       <div className="relative bg-gradient-to-br from-purple-50 to-pink-50">
         {/* Main Image */}
         <div className="relative aspect-video sm:aspect-[16/9] lg:aspect-[21/9]">
-          <img
+          <Image
             src={photos[currentIndex]}
             alt={`${name} - Photo ${currentIndex + 1}`}
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
+            priority
           />
 
           {/* Gradient Overlay */}
@@ -84,10 +88,12 @@ export function CelebrantCarousel({ photos, name }: CelebrantCarouselProps) {
                     : 'ring-2 ring-gray-200 opacity-60 hover:opacity-100'
                 }`}
               >
-                <img
+                <Image
                   src={photo}
                   alt={`Thumbnail ${index + 1}`}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  sizes="80px"
                 />
               </button>
             ))}

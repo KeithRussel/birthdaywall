@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Button } from '@/components/ui/button'
@@ -255,11 +256,13 @@ export function SubmitForm({ token }: SubmitFormProps) {
               required
             />
             {filePreview && (
-              <div className="mt-4">
-                <img
+              <div className="mt-4 relative w-full h-64">
+                <Image
                   src={filePreview}
                   alt="Preview"
-                  className="max-w-full h-auto rounded-lg max-h-64 mx-auto"
+                  fill
+                  className="object-contain rounded-lg"
+                  sizes="(max-width: 768px) 100vw, 600px"
                 />
               </div>
             )}

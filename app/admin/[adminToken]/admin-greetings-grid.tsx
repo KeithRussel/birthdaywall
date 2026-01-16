@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import {
@@ -169,11 +170,15 @@ export function AdminGreetingsGrid({ greetings: initialGreetings, adminToken }: 
                   <p className="whitespace-pre-wrap">{selectedGreeting.content}</p>
                 )}
                 {selectedGreeting.type === 'photo' && (
-                  <img
-                    src={selectedGreeting.content}
-                    alt="Greeting"
-                    className="w-full rounded-lg"
-                  />
+                  <div className="relative w-full aspect-video">
+                    <Image
+                      src={selectedGreeting.content}
+                      alt="Greeting"
+                      fill
+                      className="object-contain rounded-lg"
+                      sizes="(max-width: 768px) 100vw, 600px"
+                    />
+                  </div>
                 )}
                 {selectedGreeting.type === 'video' && (
                   <video
